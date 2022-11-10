@@ -1,0 +1,11 @@
+<!--Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:-->
+
+SELECT DISTINCT CITY 
+FROM STATION
+WHERE NOT REGEXP_LIKE(LOWER(CITY), '[a,e,i,o,u]$');
+                      
+<!--REGEXP is the operator used when performing regular expression pattern matches. 
+RLIKE is the synonym. It also supports a number of metacharacters which allow more flexibility and control when performing pattern matching.
+The backslash is used as an escape character.-->
