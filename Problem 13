@@ -1,0 +1,14 @@
+<!--Generate the following two result sets:
+Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical 
+(i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format:-->
+
+SELECT CONCAT(NAME, 
+              CASE
+              WHEN OCCUPATION="Professor" THEN "(P)"
+              WHEN OCCUPATION="Doctor" THEN "(D)"              
+              WHEN OCCUPATION="Actor" THEN "(A)"              
+              WHEN OCCUPATION="Singer" THEN "(S)"              
+              END)
+FROM OCCUPATIONS ORDER BY NAME;
+SELECT "There are a total of ", COUNT(OCCUPATION), CONCAT(" ", LOWER(OCCUPATION),"s.") from OCCUPATIONS group by OCCUPATION order by COUNT(OCCUPATION), OCCUPATION ASC;
